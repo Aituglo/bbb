@@ -14,9 +14,9 @@ wget https://dl.google.com/go/go1.15.linux-amd64.tar.gz
 sudo tar -xvf go1.15.linux-amd64.tar.gz
 sudo mv go /usr/local
 rm go1.15.linux-amd64.tar.gz
-echo "export GOROOT=/usr/local/go" >> ~/.zshrc
-echo "export GOPATH=$HOME/go" >> ~/.zshrc
-echo "export PATH=$GOPATH/bin:$GOROOT/bin:$PATH" >> ~/.zshrc
+echo 'export GOROOT="/usr/local/go"' >> ~/.zshrc
+echo 'export GOPATH="$HOME/go"' >> ~/.zshrc
+echo 'export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 
 # Install gowitness
