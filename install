@@ -68,19 +68,19 @@ echo "Installing masscan"
 git clone https://github.com/robertdavidgraham/masscan ~/tools/masscan
 cd ~/tools/masscan
 make
-cp bin/masscan /usr/local/bin
+sudo cp bin/masscan /usr/local/bin
 
 
 # Install sn0int
 
 echo "Installing sn0int"
 
-apt install debian-keyring
-gpg -a --export --keyring /usr/share/keyrings/debian-maintainers.gpg git@rxv.cc | apt-key add -
-apt-key adv --keyserver keyserver.ubuntu.com --refresh-keys git@rxv.cc
-echo deb http://apt.vulns.sexy stable main > /etc/apt/sources.list.d/apt-vulns-sexy.list
-apt update
-apt install sn0int
+sudo apt install -y debian-keyring
+sudo gpg -a --export --keyring /usr/share/keyrings/debian-maintainers.gpg git@rxv.cc | sudo apt-key add -
+sudo apt-key adv --keyserver keyserver.ubuntu.com --refresh-keys git@rxv.cc
+sudo sh -c 'echo deb http://apt.vulns.sexy stable main > /etc/apt/sources.list.d/apt-vulns-sexy.list'
+sudo apt -y update
+sudo apt install -y sn0int
 
 
 # Install kxss
@@ -93,7 +93,7 @@ go get github.com/Emoe/kxss
 
 echo "Installing jq"
 
-sudo apt install jq
+sudo apt install -y jq
 
 
 # Install gobuster
@@ -106,7 +106,7 @@ go get github.com/OJ/gobuster
 
 echo "Installing nmap"
 
-sudo apt install nmap
+sudo apt install -y nmap
 
 
 # Install waybackurls
@@ -154,7 +154,7 @@ cd ~
 
 echo "Installing zmap"
 
-sudo apt install zmap
+sudo apt install -y zmap
 
 # Install ffuf
 
@@ -172,7 +172,7 @@ GO111MODULE=on go get -u -v github.com/lc/gau
 
 echo "Install dirb"
 
-sudo apt install dirb
+sudo apt install -y dirb
 
 # Install subjack
 
@@ -184,7 +184,7 @@ go get github.com/haccer/subjack
 
 echo "Install SQLMap"
 
-sudo apt install sqlmap
+sudo apt install -y sqlmap
 
 # Install getJS
 
@@ -210,11 +210,11 @@ echo "Install shuffle-dns"
 
 GO111MODULE=on go get -u -v github.com/projectdiscovery/shuffledns/cmd/shuffledns
 
-# Install dnsprobe
+# Install dnss
 
-echo "Install dnsprobe"
+echo "Install dnss"
 
-GO111MODULE=on go get -u -v github.com/projectdiscovery/dnsprobe
+GO111MODULE=on go get -u -v github.com/projectdiscovery/dnsx/cmd/dnsx
 
 # Install urlprobe
 
@@ -226,7 +226,7 @@ go get -u github.com/1ndianl33t/urlprobe
 
 echo "Install tmux"
 
-sudo apt install tmux
+sudo apt install -y tmux
 
 # Install dalfox
 

@@ -24,7 +24,7 @@ Current tools:
 - nmap
 - waybackurls
 - amass
-- anti-burl
+- burl
 - hakrawler
 - zdns
 - zmap
@@ -33,13 +33,11 @@ Current tools:
 - dirb
 - subjack
 - SQLMap
-- fbrobe
 - getjs
 - projectdiscovery chaos-client
 - projectdiscovery nuclei
 - projectdiscovery shuffledns
-- dnsprobe
-- dnsvalidator
+- dnsx
 - urlprobe
 - tmux
 - dalfox
