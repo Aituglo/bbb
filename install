@@ -1,0 +1,243 @@
+#!/bin/bash
+
+echo "Welcome to BBB, the simple tool to install all needs for Bug Bounty"
+
+mkdir -p ~/tools
+sudo apt update
+sudo apt install -y git gcc make libpcap-dev
+
+# Install Goland
+
+echo "Installing Goland"
+
+wget https://dl.google.com/go/go1.15.linux-amd64.tar.gz
+sudo tar -xvf go1.15.linux-amd64.tar.gz
+sudo mv go /usr/local
+echo "export GOROOT=/usr/local/go" >> ~/.bashrc
+echo "export GOPATH=$HOME/go" >> ~/.bashrc
+echo "export PATH=$GOPATH/bin:$GOROOT/bin:$PATH" >> ~/.bashrc
+
+# Install gowitness
+
+echo "Installing gowitness"
+
+go get -u github.com/sensepost/gowitness
+
+# Install httprobe
+
+echo "Installing httprobe"
+
+go get -u github.com/tomnomnom/httprobe
+
+# Install httprobe
+
+echo "Installing httprobe"
+
+# Install subfinder
+
+echo "Installing subfinder"
+
+GO111MODULE=on go get -u -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
+
+# Install assetfinder
+
+echo "Installing assetfinder"
+
+go get -u github.com/tomnomnom/assetfinder
+
+# Install gf
+
+echo "Installing gf"
+
+go get -u github.com/tomnomnom/assetfinder
+echo 'source $GOPATH/src/github.com/tomnomnom/gf/gf-completion.bash' >> ~/.bashrc
+cp -r $GOPATH/src/github.com/tomnomnom/gf/examples ~/.gf
+
+# Install anew
+
+echo "Installing anew"
+
+go get -u github.com/tomnomnom/anew
+
+# Install masscan
+
+echo "Installing masscan"
+
+git clone https://github.com/robertdavidgraham/masscan ~/tools/masscan
+cd ~/tools/masscan
+make
+cp bin/masscan /usr/local/bin
+
+
+# Install sn0int
+
+echo "Installing sn0int"
+
+apt install debian-keyring
+gpg -a --export --keyring /usr/share/keyrings/debian-maintainers.gpg git@rxv.cc | apt-key add -
+apt-key adv --keyserver keyserver.ubuntu.com --refresh-keys git@rxv.cc
+echo deb http://apt.vulns.sexy stable main > /etc/apt/sources.list.d/apt-vulns-sexy.list
+apt update
+apt install sn0int
+
+
+# Install kxss
+
+echo "Installing kxss"
+
+go get github.com/Emoe/kxss
+
+# Install jq
+
+echo "Installing jq"
+
+sudo apt install jq
+
+
+# Install gobuster
+
+echo "Installing gobuster"
+
+go get github.com/OJ/gobuster
+
+# Install nmap
+
+echo "Installing nmap"
+
+sudo apt install nmap
+
+
+# Install waybackurls
+
+echo "Installing waybackurls"
+
+go get github.com/tomnomnom/waybackurls
+
+# Install Amass
+
+echo "Installing amass"
+
+export GO111MODULE=on
+go get -v github.com/OWASP/Amass/v3/...
+
+# Install SecLists
+
+echo "Installing SecLists"
+
+mkdir -p ~/lists
+git clone https://github.com/danielmiessler/SecLists.git ~/lists/seclists
+
+# Install burl
+
+echo "Installing burl"
+
+go get github.com/tomnomnom/burl
+
+# Install hakrawler
+
+echo "Installing hakrawler"
+
+go get github.com/hakluke/hakrawler
+
+# Install zdns
+
+echo "Installing zdns"
+
+git clone https://github.com/zmap/zdns.git ~/tools/zdns
+cd ~/tools/zdns
+go build
+cd ~
+
+# Install zmap
+
+echo "Installing zmap"
+
+sudo apt install zmap
+
+# Install ffuf
+
+echo "Install ffuf"
+
+go get -u github.com/ffuf/ffuf
+
+# Install gau
+
+echo "Install gau"
+
+GO111MODULE=on go get -u -v github.com/lc/gau
+
+# Install dirb
+
+echo "Install dirb"
+
+sudo apt install dirb
+
+# Install subjack
+
+echo "Install subjack"
+
+go get github.com/haccer/subjack
+
+# Install sqlmap
+
+echo "Install SQLMap"
+
+sudo apt install sqlmap
+
+# Install getJS
+
+echo "Install getJS"
+
+go get github.com/003random/getJS
+
+# Install chaos-client
+
+echo "Install chaos-client"
+
+GO111MODULE=on go get -u github.com/projectdiscovery/chaos-client/cmd/chaos
+
+# Install nuclei
+
+echo "Install nuclei"
+
+GO111MODULE=on go get -u -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+
+# Install shuffledns
+
+echo "Install shuffle-dns"
+
+GO111MODULE=on go get -u -v github.com/projectdiscovery/shuffledns/cmd/shuffledns
+
+# Install dnsprobe
+
+echo "Install dnsprobe"
+
+GO111MODULE=on go get -u -v github.com/projectdiscovery/dnsprobe
+
+# Install urlprobe
+
+echo "Install urlprobe"
+
+go get -u github.com/1ndianl33t/urlprobe
+
+# Install tmux
+
+echo "Install tmux"
+
+sudo apt install tmux
+
+# Install dalfox
+
+echo "Install dalfox"
+
+go get -u github.com/hahwul/dalfox
+
+# Install subjack
+
+echo "Install subjack"
+
+go get github.com/haccer/subjack
+
+echo "Installation Finish"
+
+
