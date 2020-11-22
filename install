@@ -13,9 +13,11 @@ echo "Installing Goland"
 wget https://dl.google.com/go/go1.15.linux-amd64.tar.gz
 sudo tar -xvf go1.15.linux-amd64.tar.gz
 sudo mv go /usr/local
-echo "export GOROOT=/usr/local/go" >> ~/.bashrc
-echo "export GOPATH=$HOME/go" >> ~/.bashrc
-echo "export PATH=$GOPATH/bin:$GOROOT/bin:$PATH" >> ~/.bashrc
+rm go1.15.linux-amd64.tar.gz
+echo "export GOROOT=/usr/local/go" >> ~/.zshrc
+echo "export GOPATH=$HOME/go" >> ~/.zshrc
+echo "export PATH=$GOPATH/bin:$GOROOT/bin:$PATH" >> ~/.zshrc
+source ~/.zshrc
 
 # Install gowitness
 
@@ -50,7 +52,7 @@ go get -u github.com/tomnomnom/assetfinder
 echo "Installing gf"
 
 go get -u github.com/tomnomnom/assetfinder
-echo 'source $GOPATH/src/github.com/tomnomnom/gf/gf-completion.bash' >> ~/.bashrc
+echo 'source $GOPATH/src/github.com/tomnomnom/gf/gf-completion.bash' >> ~/.zshrc
 cp -r $GOPATH/src/github.com/tomnomnom/gf/examples ~/.gf
 
 # Install anew
